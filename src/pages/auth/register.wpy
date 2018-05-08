@@ -81,7 +81,7 @@
         <view wx:if="{{ errors.captchaValue }}" class="weui-cells__tips error-message">{{ errors.captchaValue[0] }}</view>
         <view class="weui-cell weui-cell_input weui-cell_vcode">
           <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="图片验证码" @input="bindCaptchaCodeInput"/>
+            <input class="weui-input" placeholder="图片验证码" @input="bindCaptchaCodeInput" value="{{ captchaValue }}"/>
           </view>
           <view class="weui-cell__ft">
             <image class="weui-vcode-img" @tap="tapCaptchaCode" src="{{ captcha.imageContent }}" style="width: 100px"></image>
@@ -295,6 +295,7 @@
           // 验证码错误提示
           if (codeResponse.statusCode === 401) {
             this.errors.captchaValue = ['图片验证码错误']
+            this.captchaValue = null
             this.$apply()
             await this.getCaptchaCode()
             return false
