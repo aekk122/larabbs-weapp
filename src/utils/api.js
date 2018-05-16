@@ -95,7 +95,6 @@ const getToken = async (options) => {
       }
     }
   }
-
   return accessToken
 }
 
