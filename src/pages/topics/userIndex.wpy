@@ -29,15 +29,15 @@
       this.$invoke('topiclist', 'reload')
     }
     // 下拉刷新
-    async onPulllDownRefresh() {
-      // 调用组件 reload 方法
+    async onPullDownRefresh() {
+      // 调用组件的 reload 方法
       await this.$invoke('topiclist', 'reload')
       wepy.stopPullDownRefresh()
     }
     // 上拉加载更多
     async onReachBottom() {
       // 调用组件 loadMore 方法
-      this.$invoke('topiclist', 'loadMore')
+      await this.$invoke('topiclist', 'loadMore')
     }
   }
 </script>
