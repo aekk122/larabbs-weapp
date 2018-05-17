@@ -217,5 +217,10 @@
       // 调用组件的 loadMore
       await this.$invoke('topiclist', 'loadMore')
     }
+    onShow() {
+      this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
+        this.$invoke('topiclist', 'reload')
+      })
+    }
   }
 </script>
