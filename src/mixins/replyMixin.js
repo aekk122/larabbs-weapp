@@ -65,7 +65,8 @@ export default class ReplyMixin extends wepy.mixin {
       return false
     }
 
-    return (reply.user_id === user.id)
+    // 用户为回复发布者 或者 有管理内容权限
+    return (reply.user_id === user.id) || this.$parent.can('manage_contents')
   }
   // 获取话题回复
   async getReplies(reset = false) {
